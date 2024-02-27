@@ -53,7 +53,7 @@ $j=0;
         
         // solo il voto
         foreach($hotels as $value){
-            if($value['vote'] == $star){
+            if($value['vote'] >= $star){
             $newhotels[$j]=$hotels[$i];
             $j++;
         }
@@ -71,7 +71,7 @@ $j=0;
     }else{
         // sia parcheggio che voto
         foreach($hotels as $value){
-            if($value['parking'] == filter_var($parcheggio, FILTER_VALIDATE_BOOLEAN) &&  $value['vote'] == $star){
+            if($value['parking'] == filter_var($parcheggio, FILTER_VALIDATE_BOOLEAN) &&  $value['vote'] >= $star){
             $newhotels[$j]=$hotels[$i];
             $j++;
         }
@@ -141,8 +141,6 @@ $j=0;
   </thead>
   <tbody>
     <?php foreach( $newhotels as $value){ ?>
-        
-        
         
         <tr>
       
